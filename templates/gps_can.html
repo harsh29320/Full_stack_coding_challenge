@@ -1,0 +1,42 @@
+<!-- html file to display the app and results from the app.py file-->
+<html>
+<head>
+<script>
+<!-- Alerting the user it there is no file name-->
+function validatecsv_file(){
+	var x = document.forms["gps_can"]["Name"].value;
+	if (x == ""){
+		alert("CSV Filename must be filled");
+		return false;
+	}
+}
+</script>
+</head>
+
+	<h1> Enter file name</h1>
+	<body>
+
+	<form name ="gps_can" onsubmit="return validatecsv_file()" method='POST'action="/app/">
+	<p>csv file <input type ="text"  name="Name"></p>
+	<p><input type="submit" value="submit" ></p>
+	</form>
+	<h2> {{no_file}} </h2>
+	<p>Total number of GPS messages: {{gps}}</p>
+	<p>Total number of CAN message:  {{can}}</p>
+	<p>Total number of unique CAN messages:  {{can_unq}}</p>
+	<p>Total runtime:  {{run}}</p>
+	<p>Average CAN messages: {{avg_can}}</p>
+	<p>The first ts that contains most CAN messages: {{most_can}}</p>
+	<p>The first ts that contains least CAN messages: {{least_can}}</p>
+	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+</html>
